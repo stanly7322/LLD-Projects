@@ -55,6 +55,8 @@ class SplitSystem:
 
         else:
             for percentage in user_percentages:
+                if percentage == expense_creator_id:
+                    continue
                 split_amount = amount * user_percentages[percentage] / 100
                 self.add_user_expense(expense_creator_id, split_amount, percentage, group)
 
@@ -76,5 +78,5 @@ class SplitSystem:
 
         else:
             group.balances[member_id][expense_creator_id] = 0
-            group.balances[expense_creator_id][member_id] = -diff
+            group.balances[expense_creator_id][member_id] = -diff if diff<0 else 0
 
