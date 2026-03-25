@@ -43,7 +43,7 @@ class SplitSystem:
         group.add_expense(expense)
 
         members = group.get_members()
-        size = len(members) -1
+        size = len(members)
 
         if type == 'GENERAL':
             for member in members:
